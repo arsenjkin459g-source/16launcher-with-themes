@@ -93,6 +93,8 @@ async fn link_identity(
         .execute(&state.pool)
         .await
         .map_err(|e| ApiError::Internal(e.to_string()))?;
+
+        let _ = crate::achievements::try_unlock(&state.pool, user_id, "identity_linked").await;
     }
 
     Ok(Json(LinkIdentityResponse { success: true }))

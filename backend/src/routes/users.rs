@@ -9,7 +9,6 @@ use uuid::Uuid;
 use crate::auth::extract_user_id;
 use crate::db::AppState;
 use crate::error::ApiError;
-use crate::routes::builds::{self, BuildDetailResponse, BuildRow};
 
 #[derive(serde::Serialize)]
 pub struct UserPublicProfile {
@@ -19,16 +18,8 @@ pub struct UserPublicProfile {
     pub ely_username: Option<String>,
 }
 
-#[derive(serde::Serialize)]
-struct UserBuildsResponse {
-    builds: Vec<BuildRow>,
-}
-
 pub fn router() -> Router<AppState> {
-    Router::new()
-        .route("/users/{user_id}", get(get_user_profile))
-        .route("/users/{user_id}/builds", get(list_user_builds))
-        .route("/users/{user_id}/builds/{build_id}", get(get_user_build))
+    Router::new().route("/users/{user_id}", get(get_user_profile))
 }
 
 pub(crate) async fn ensure_can_view_user(
@@ -83,28 +74,4 @@ async fn get_user_profile(
         nickname: row.get("nickname"),
         ely_username: row.get("ely_username"),
     }))
-}
-
-async fn list_user_builds(
-    State(state): State<AppState>,
-    headers: axum::http::HeaderMap,
-    Path(target_user_id): Path<Uuid>,
-) -> Result<Json<UserBuildsResponse>, ApiError> {
-    let viewer_id = extract_user_id(&state, &headers)?;
-    ensure_can_view_user(&state.pool, viewer_id, target_user_id).await?;
-
-    let builds = builds::list_build_rows_for_user(&state.pool, target_user_id).await?;
-    Ok(Json(UserBuildsResponse { builds }))
-}
-
-async fn get_user_build(
-    State(state): State<AppState>,
-    headers: axum::http::HeaderMap,
-    Path((target_user_id, build_id)): Path<(Uuid, Uuid)>,
-) -> Result<Json<BuildDetailResponse>, ApiError> {
-    let viewer_id = extract_user_id(&state, &headers)?;
-    ensure_can_view_user(&state.pool, viewer_id, target_user_id).await?;
-
-    let detail = builds::get_build_detail_for_user(&state.pool, target_user_id, build_id).await?;
-    Ok(Json(detail))
 }

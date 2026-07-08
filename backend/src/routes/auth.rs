@@ -89,6 +89,7 @@ async fn register(
     .map_err(map_user_insert_error)?;
 
     let id: Uuid = row.get("id");
+    let _ = crate::achievements::try_unlock(&state.pool, id, "welcome").await;
     issue_tokens(&state, id).await.map(Json)
 }
 

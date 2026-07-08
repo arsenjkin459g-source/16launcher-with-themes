@@ -1,5 +1,5 @@
+mod achievements;
 mod auth;
-mod builds;
 mod friends;
 mod health;
 mod identities;
@@ -14,7 +14,7 @@ pub fn router() -> Router<AppState> {
         .merge(health::router())
         .merge(auth::router())
         .merge(friends::router())
-        .merge(builds::router())
         .merge(users::router())
         .merge(identities::router())
+        .merge(achievements::router())
 }

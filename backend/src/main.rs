@@ -1,3 +1,4 @@
+mod achievements;
 mod auth;
 mod config;
 mod db;
@@ -32,6 +33,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let config = Config::from_env()?;
     let pool = db::connect(&config.database_url).await?;
     MIGRATOR.run(&pool).await?;
+    achievements::sync_catalog(&pool).await?;
 
     let redis = db::connect_redis(&config.redis_url).await?;
 

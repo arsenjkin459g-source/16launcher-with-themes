@@ -2,7 +2,7 @@
 name = "mc16launcher-api"
 version = "0.1.0"
 edition = "2021"
-description = "16Launcher platform API — auth, friends, builds, rooms, presence"
+description = "16Launcher platform API — auth, friends, rooms, presence"
 
 [[bin]]
 name = "mc16launcher-api"

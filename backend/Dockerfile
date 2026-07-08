@@ -2,6 +2,7 @@ FROM rust:1.85-bookworm AS builder
 WORKDIR /app
 COPY Cargo.toml Cargo.lock* ./
 COPY migrations ./migrations
+COPY data ./data
 COPY src ./src
 RUN cargo build --release
 
@@ -10,5 +11,6 @@ RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/
 WORKDIR /app
 COPY --from=builder /app/target/release/mc16launcher-api /app/mc16launcher-api
 COPY migrations ./migrations
+COPY data ./data
 EXPOSE 8080
 CMD ["/app/mc16launcher-api"]

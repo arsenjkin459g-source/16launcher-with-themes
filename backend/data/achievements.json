@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "achievements": [
+    {
+      "code": "welcome",
+      "title": "Добро пожаловать!",
+      "description": "Впервые запустите 16Launcher.",
+      "icon_url": null
+    },
+    {
+      "code": "identity_linked",
+      "title": "Подтверждение личности",
+      "description": "Свяжите ваш Ely или Microsoft аккаунт.",
+      "icon_url": null
+    },
+    {
+      "code": "first_friend",
+      "title": "Дружелюбство",
+      "description": "Добавьте своего первого друга.",
+      "icon_url": null
+    }
+  ]
+}

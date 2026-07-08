@@ -280,6 +280,9 @@ async fn accept_request(
         .await
         .map_err(|e| ApiError::Internal(e.to_string()))?;
 
+    let _ = crate::achievements::check_friend_achievements(&state.pool, from_user_id).await;
+    let _ = crate::achievements::check_friend_achievements(&state.pool, to_user_id).await;
+
     Ok(Json(serde_json::json!({ "success": true })))
 }
 
