@@ -77,10 +77,5 @@
   },
 
   "plugins": {
-    "updater": {
-      "endpoints": [
-        "https://github.com/launcherdev11/rust-launcher/releases/latest/download/latest.json"
-      ]
-    }
   }
 }
