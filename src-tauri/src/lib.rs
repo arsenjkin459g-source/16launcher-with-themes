@@ -63,6 +63,10 @@ use profile_launch::{
     take_pending_profile_launch,
 };
 use services::shortcuts::create_profile_desktop_shortcut;
+use services::themes::{
+    list_themes, import_theme_zip, get_theme_css, save_custom_theme_css,
+    create_empty_theme, delete_theme, open_themes_folder, open_theme_css_file, get_theme_dir,
+};
 
 #[tauri::command]
 fn get_launcher_logs_file() -> String {
@@ -150,6 +154,7 @@ pub fn run() {
                 }
                 let settings = services::game::settings::load_settings_from_disk();
                 infra::autostart::sync_autostart_from_settings(app.handle(), settings.autostart_enabled);
+                services::themes::ensure_example_theme(app.handle());
                 Ok(())
             }
         })
@@ -272,7 +277,14 @@ pub fn run() {
             delete_screenshot,
             open_screenshots_folder,
             open_screenshot,
-            get_launcher_logs
+            get_launcher_logs,
+            list_themes,
+            import_theme_zip,
+            get_theme_css,
+            save_custom_theme_css,
+            create_empty_theme,
+            delete_theme,
+            open_themes_folder, open_theme_css_file, get_theme_dir
         ])
         .build(tauri::generate_context!())
         .expect("error while building tauri application")
