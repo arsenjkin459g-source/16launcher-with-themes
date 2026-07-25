@@ -51,11 +51,6 @@
 
 ![Main window with theme](images/main.png)
 ![Settings window with theme](images/settings.png)
-![readme_screen.png](public/launcher-assets/readme_screen.png)
-![readme_screen2.png](public/launcher-assets/readme_screen2.png)
-![readme_screen3.png](public/launcher-assets/readme_screen3.png)
-![readme_screen4.png](public/launcher-assets/readme_screen4.png)
-![readme_screen5.png](public/launcher-assets/readme_screen5.png)
 
 ## Support
 
