@@ -40,11 +40,6 @@
 - **Управление контентом**: Легкая установка и контроль над контентом.
 - **Кастомные темы**: Полная поддержка визуальных тем оформления.
 
-## Скриншоты
-
-![Главное окно с темой](images/main.png)
-![Настройки с темой](images/settings.png)
-
 ## Быстрый старт
 
 1. **Скачайте** лаунчер с нашего [официального сайта](https://16luncher.ru)
@@ -54,6 +49,8 @@
 
 # Скриншоты
 
+![Главное окно с темой](images/main.png)
+![Настройки с темой](images/settings.png)
 ![readme_screen.png](public/launcher-assets/readme_screen.png)
 ![readme_screen2.png](public/launcher-assets/readme_screen2.png)
 ![readme_screen3.png](public/launcher-assets/readme_screen3.png)
