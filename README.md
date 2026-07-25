@@ -40,11 +40,6 @@
 - **Mod Management**: Easy mod installation and organization
 - **Custom Themes**: Full support for custom visual themes
 
-## Screenshots
-
-![Main window with theme](images/main.png)
-![Settings window with theme](images/settings.png)
-
 ## Quick Start
 
 1. **Download** the launcher from our [official website](https://16luncher.ru)
@@ -54,6 +49,8 @@
 
 # Screenshots
 
+![Main window with theme](images/main.png)
+![Settings window with theme](images/settings.png)
 ![readme_screen.png](public/launcher-assets/readme_screen.png)
 ![readme_screen2.png](public/launcher-assets/readme_screen2.png)
 ![readme_screen3.png](public/launcher-assets/readme_screen3.png)
