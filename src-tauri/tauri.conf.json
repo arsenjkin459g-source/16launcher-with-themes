@@ -45,8 +45,7 @@
       }
     ],
     "resources": [
-      "resources/bootstrap.jar",
-      "resources/themes/"
+      "resources/bootstrap.jar"
     ],
     "icon": [
       "icons/32x32.png",
